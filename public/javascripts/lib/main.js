@@ -3,12 +3,12 @@
   console.log("fire main.js");
 
   $(function() {
-    $('form').on('click', '#submit-btn', function(e) {
+    $('form').on('click', function(e) {
       var info;
       e.preventDefault();
       console.log($(this));
-      info = $('form').serialize();
-      console.log("info:", info);
+      info = $(this).serialize();
+      console.log("info", info);
       $.post('/submitdata', info, function(data) {});
     });
   });

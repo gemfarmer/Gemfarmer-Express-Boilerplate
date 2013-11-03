@@ -32,17 +32,16 @@ mongoURI = process.env.MONGOHQ_URL or 'mongodb://localhost/veganizzmapp'
 mongoose.connect(mongoURI)
 
 # Set up Schema
-Recipe = mongoose.model('Recipe', {
+TestModel = mongoose.model('TestModel', {
 	name: String
-	ingredient: String
 	})
 
 app.get('/', routes.index);
 app.post '/submitdata', (req,res) ->
 	submitedInfo = req.body
 	console.log("submitedInfo", submitedInfo)
-	recipe = new Recipe(submitedInfo)
-	recipe.save (err,data) ->
+	testModel = new TestModel(submitedInfo)
+	testModel.save (err,data) ->
 		console.log("sent to database:",data)
 		return
 	return
